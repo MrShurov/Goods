@@ -12,8 +12,8 @@ public class GoodsService {
     @Autowired
     private IGoodsRepository goodsRepository;
 
-    public void test(){
-        goodsRepository.save(new Goods("Wood"));
+    public void createGood(String goodName){
+        goodsRepository.save(new Goods(goodName));
     }
 
     public List<Goods> getAll(){

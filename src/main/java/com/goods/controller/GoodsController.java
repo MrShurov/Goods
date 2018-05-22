@@ -3,9 +3,7 @@ package com.goods.controller;
 import com.goods.entities.Goods;
 import com.goods.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,9 +13,10 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
-    @GetMapping("/test")
-    public void test(){
-        goodsService.test();
+    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
+    @GetMapping("/createGood")
+    public void createGood(@RequestBody String goodName){
+        goodsService.createGood(goodName);
     }
 
     @GetMapping("/getAll")

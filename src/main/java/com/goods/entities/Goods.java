@@ -20,6 +20,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "goods")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Goods implements java.io.Serializable {
 
 
@@ -30,17 +32,9 @@ public class Goods implements java.io.Serializable {
         this.goodname = goodname;
     }
 
-    public Goods() {
-    }
-
-    public Goods(Integer goodid, String goodname) {
-        this.goodid = goodid;
-        this.goodname = goodname;
-    }
-
-    @SequenceGenerator(name = "generator", sequenceName = "seq_goods")
+    @SequenceGenerator(name = "seq_goods", sequenceName = "seq_goods", initialValue = 1)
     @Id
-    @GeneratedValue(strategy = SEQUENCE, generator = "generator")
+    @GeneratedValue(strategy = SEQUENCE, generator = "seq_goods")
     @Column(name = "goodid", unique = true, nullable = false)
     public Integer getGoodid() {
         return this.goodid;

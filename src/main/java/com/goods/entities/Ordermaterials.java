@@ -30,6 +30,17 @@ public class Ordermaterials implements java.io.Serializable {
     private double price;
     private double total;
 
+    public Ordermaterials(Integer ordermaterialsid, Goodslist goodslist, Materials materials, String koefficient, double price, double total) {
+        this.ordermaterialsid = ordermaterialsid;
+        this.goodslist = goodslist;
+        this.materials = materials;
+        this.koefficient = koefficient;
+        this.price = price;
+        this.total = total;
+    }
+
+    public Ordermaterials() {
+    }
 
     @SequenceGenerator(name = "generator", sequenceName = "ordermaterials_sequence")
     @Id

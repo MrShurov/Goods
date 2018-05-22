@@ -29,6 +29,16 @@ public class Works implements java.io.Serializable {
     private double norma;
     private int count;
 
+    public Works(Integer workid, Goods goods, String workname, double norma, int count) {
+        this.workid = workid;
+        this.goods = goods;
+        this.workname = workname;
+        this.norma = norma;
+        this.count = count;
+    }
+
+    public Works() {
+    }
 
     @SequenceGenerator(name = "generator", sequenceName = "works_sequence")
     @Id

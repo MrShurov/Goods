@@ -23,6 +23,13 @@ public class Measures implements java.io.Serializable {
     private Integer measureid;
     private String measurename;
 
+    public Measures(Integer measureid, String measurename) {
+        this.measureid = measureid;
+        this.measurename = measurename;
+    }
+
+    public Measures() {
+    }
 
     @SequenceGenerator(name = "generator", sequenceName = "measures_sequence")
     @Id

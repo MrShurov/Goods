@@ -31,6 +31,15 @@ public class Orders implements java.io.Serializable {
     private String ordernunber;
     private Date createdate;
 
+    public Orders(Integer orderid, Users users, String ordernunber, Date createdate) {
+        this.orderid = orderid;
+        this.users = users;
+        this.ordernunber = ordernunber;
+        this.createdate = createdate;
+    }
+
+    public Orders() {
+    }
 
     @SequenceGenerator(name = "generator", sequenceName = "orders_sequence")
     @Id

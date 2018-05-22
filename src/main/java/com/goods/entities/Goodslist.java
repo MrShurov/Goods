@@ -35,6 +35,19 @@ public class Goodslist implements java.io.Serializable {
     private String height;
     private String depth;
 
+    public Goodslist() {
+    }
+
+    public Goodslist(Integer goodslistid, Goods goods, Orders orders, int count, String length, String width, String height, String depth) {
+        this.goodslistid = goodslistid;
+        this.goods = goods;
+        this.orders = orders;
+        this.count = count;
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        this.depth = depth;
+    }
 
     @SequenceGenerator(name = "generator", sequenceName = "goodslist_sequence")
     @Id

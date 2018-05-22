@@ -24,6 +24,14 @@ public class Users implements java.io.Serializable {
     private String username;
     private String password;
 
+    public Users(Integer userid, String username, String password) {
+        this.userid = userid;
+        this.username = username;
+        this.password = password;
+    }
+
+    public Users() {
+    }
 
     @SequenceGenerator(name = "generator", sequenceName = "users_sequence")
     @Id

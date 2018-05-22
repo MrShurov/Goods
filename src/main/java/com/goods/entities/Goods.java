@@ -20,7 +20,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "goods")
-@AllArgsConstructor
 public class Goods implements java.io.Serializable {
 
 
@@ -32,6 +31,11 @@ public class Goods implements java.io.Serializable {
     }
 
     public Goods() {
+    }
+
+    public Goods(Integer goodid, String goodname) {
+        this.goodid = goodid;
+        this.goodname = goodname;
     }
 
     @SequenceGenerator(name = "generator", sequenceName = "seq_goods")
@@ -54,6 +58,4 @@ public class Goods implements java.io.Serializable {
     public void setGoodname(String goodname) {
         this.goodname = goodname;
     }
-
-
 }

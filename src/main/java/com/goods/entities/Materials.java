@@ -31,6 +31,18 @@ public class Materials implements java.io.Serializable {
     private String formula;
     private double price;
 
+    public Materials() {
+    }
+
+    public Materials(Integer materialid, Goods goods, Measures measures, String materialname, Boolean mandatory, String formula, double price) {
+        this.materialid = materialid;
+        this.goods = goods;
+        this.measures = measures;
+        this.materialname = materialname;
+        this.mandatory = mandatory;
+        this.formula = formula;
+        this.price = price;
+    }
 
     @SequenceGenerator(name = "generator", sequenceName = "materials_sequence")
     @Id

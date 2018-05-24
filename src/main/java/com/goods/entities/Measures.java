@@ -28,4 +28,8 @@ public class Measures implements java.io.Serializable {
     private Integer measureId;
     @Column(name = "measurename", nullable = false, length = 50)
     private String measureName;
+
+    public Measures(String measureName) {
+        this.measureName = measureName;
+    }
 }

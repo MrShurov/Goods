@@ -19,4 +19,8 @@ public class MeasureService {
     public List<Measures> getAll(){
         return (List<Measures>)measuresRepository.findAll();
     }
+
+    public Measures getMeasuresByMeasureName(String measureName){
+        return measuresRepository.getMeasuresByMeasureName(measureName);
+    }
 }

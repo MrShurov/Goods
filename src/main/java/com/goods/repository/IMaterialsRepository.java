@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IMaterialsRepository extends CrudRepository<Materials,Integer> {
+    Materials getMaterialsByMaterialName(String materialName);
 }

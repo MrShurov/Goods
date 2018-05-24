@@ -19,4 +19,8 @@ public class GoodsService {
     public List<Goods> getAll(){
         return (List<Goods>)goodsRepository.findAll();
     }
+
+    public Goods getGoodByGoodName(String goodName){
+        return goodsRepository.getGoodsByGoodName(goodName);
+    }
 }

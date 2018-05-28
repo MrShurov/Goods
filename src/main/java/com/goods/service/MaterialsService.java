@@ -32,9 +32,10 @@ public class MaterialsService {
         return (List<Materials>)materialsRepository.findAll();
     }
 
-    @Modifying
-    @Query("update materials m set m.price = ?1 where materialname = ?2")
     public void updatePrice(Double price, String materialName){
+        Materials material = materialsRepository.getMaterialsByMaterialName(materialName);
+        material.setPrice(price);
+        materialsRepository.save(material);
     }
 
     public Materials getByName(String materialName){

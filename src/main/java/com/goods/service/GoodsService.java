@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GoodsService {
@@ -22,5 +23,10 @@ public class GoodsService {
 
     public Goods getGoodByGoodName(String goodName){
         return goodsRepository.getGoodsByGoodName(goodName);
+    }
+
+    public Goods getGoodById(Integer goodId){
+        Optional<Goods> good = goodsRepository.findById(goodId);
+        return good.get();
     }
 }

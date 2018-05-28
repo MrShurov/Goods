@@ -38,4 +38,11 @@ public class Works implements java.io.Serializable {
     private double norma;
     @Column(name = "count", nullable = false)
     private int count;
+
+    public Works(Goods goods, String workName, double norma, int count) {
+        this.goods = goods;
+        this.workName = workName;
+        this.norma = norma;
+        this.count = count;
+    }
 }

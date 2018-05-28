@@ -26,8 +26,7 @@ public class MaterialController {
 
     @GetMapping("/updatePrice")
     @RequestMapping(method = RequestMethod.PUT, produces = "application/json")
-    public void /*Materials*/ updatePrice(Double price, String materialName){
+    public void updatePrice(Double price, String materialName){
         materialsService.updatePrice(price,materialName);
-        /*return materialsService.getByName(materialName);*/
     }
 }

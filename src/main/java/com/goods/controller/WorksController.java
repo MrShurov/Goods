@@ -15,7 +15,7 @@ public class WorksController {
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     @GetMapping("/createWork")
-    public void createMeasure(@RequestBody String workName,Double norma,Integer count,Integer goodId){
+    public void createWork(@RequestBody String workName,Double norma,Integer count,Integer goodId){
         worksService.createWork(workName,norma,count,goodId);
     }
 

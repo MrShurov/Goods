@@ -35,9 +35,12 @@ public class Orders implements java.io.Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "createby")
     private Users users;
-    @Column(name = "ordernunber", length = 20)
-    private String orderNunber;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "createdate", length = 29)
     private Date createDate;
+
+    public Orders(Users users, Date createDate) {
+        this.users = users;
+        this.createDate = createDate;
+    }
 }

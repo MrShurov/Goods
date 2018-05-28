@@ -15,7 +15,7 @@ public class MaterialController {
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     @GetMapping("/createMaterial")
-    public void createGood(@RequestBody String materialName, String goodName, String measureName, Boolean mandatory, Double price){
+    public void createMaterial(@RequestBody String materialName, String goodName, String measureName, Boolean mandatory, Double price){
         materialsService.createMaterial(materialName,goodName,measureName,mandatory,price);
     }
 

@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MaterialsService {
@@ -40,5 +41,10 @@ public class MaterialsService {
 
     public Materials getByName(String materialName){
         return materialsRepository.getMaterialsByMaterialName(materialName);
+    }
+
+    public Materials getMaterialById(Integer id){
+        Optional<Materials> material = materialsRepository.findById(id);
+        return material.get();
     }
 }

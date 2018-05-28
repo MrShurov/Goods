@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrdersService {
@@ -31,4 +32,10 @@ public class OrdersService {
     public List<Orders> getAll() {
         return (List<Orders>) ordersRepository.findAll();
     }
+
+    public Orders getOrderById(Integer id){
+        Optional<Orders> order = ordersRepository.findById(id);
+        return order.get();
+    }
+
 }

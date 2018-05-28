@@ -1,5 +1,6 @@
 package com.goods.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ import javax.persistence.TemporalType;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Orders implements java.io.Serializable {
 
     @SequenceGenerator(name = "seq_orders", sequenceName = "seq_orders")

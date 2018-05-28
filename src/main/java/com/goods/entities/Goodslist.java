@@ -1,5 +1,6 @@
 package com.goods.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.goods.entities.Goods;
 
 import javax.persistence.Column;
@@ -24,6 +25,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Goodslist implements java.io.Serializable {
 
     @SequenceGenerator(name = "seq_goodlist", sequenceName = "seq_goodlist")
@@ -47,4 +49,14 @@ public class Goodslist implements java.io.Serializable {
     private String height;
     @Column(name = "depth", length = 50)
     private String depth;
+
+    public Goodslist(Goods goods, Orders orders, int count, String length, String width, String height, String depth) {
+        this.goods = goods;
+        this.orders = orders;
+        this.count = count;
+        this.length = length;
+        this.width = width;
+        this.height = height;
+        this.depth = depth;
+    }
 }

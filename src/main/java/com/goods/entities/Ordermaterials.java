@@ -1,5 +1,6 @@
 package com.goods.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Ordermaterials implements java.io.Serializable {
 
     @SequenceGenerator(name = "seq_ordermaterials", sequenceName = "seq_ordermaterials")
@@ -36,9 +38,17 @@ public class Ordermaterials implements java.io.Serializable {
     @JoinColumn(name = "materialid")
     private Materials materials;
     @Column(name = "koefficient", nullable = false, length = 50)
-    private String koefficient;
+    private Double koefficient;
     @Column(name = "price", nullable = false, precision = 17, scale = 17)
     private double price;
     @Column(name = "total", nullable = false, precision = 17, scale = 17)
     private double total;
+
+    public Ordermaterials(Goodslist goodsList, Materials materials, Double koefficient, double price, double total) {
+        this.goodsList = goodsList;
+        this.materials = materials;
+        this.koefficient = koefficient;
+        this.price = price;
+        this.total = total;
+    }
 }

@@ -142,10 +142,10 @@ CREATE TABLE GoodsList
 	OrderId integer NULL,
 	GoodId integer NULL,
 	Count integer NOT NULL,
-	Length varchar(50) NULL,
-	Width varchar(50) NULL,
-	Height varchar(50) NULL,
-	Depth varchar(50) NULL
+	Length double precision NULL,
+	Width double precision NULL,
+	Height double precision NULL,
+	Depth double precision NULL
 )
 ;
 

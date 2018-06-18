@@ -36,15 +36,12 @@ public class Works implements java.io.Serializable {
     private Goods goods;
     @Column(name = "workname", nullable = false, length = 50)
     private String workName;
-    @Column(name = "norma", nullable = false, precision = 17, scale = 17)
-    private double norma;
     @Column(name = "count", nullable = false)
     private int count;
 
-    public Works(Goods goods, String workName, double norma, int count) {
+    public Works(Goods goods, String workName, int count) {
         this.goods = goods;
         this.workName = workName;
-        this.norma = norma;
         this.count = count;
     }
 }

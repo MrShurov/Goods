@@ -14,8 +14,8 @@ public class WorksService {
     @Autowired
     GoodsService goodsService;
 
-    public void createWork(String workName,Double norma,Integer count,Integer goodId){
-        Works work = new Works(goodsService.getGoodById(goodId),workName,norma,count);
+    public void createWork(String workName,Integer count,Integer goodId){
+        Works work = new Works(goodsService.getGoodById(goodId),workName,count);
         worksRepository.save(work);
     }
 

@@ -42,15 +42,15 @@ public class Goodslist implements java.io.Serializable {
     @Column(name = "count", nullable = false)
     private int count;
     @Column(name = "length", length = 50)
-    private String length;
+    private Double length;
     @Column(name = "width", length = 50)
-    private String width;
+    private Double width;
     @Column(name = "height", length = 50)
-    private String height;
+    private Double height;
     @Column(name = "depth", length = 50)
-    private String depth;
+    private Double depth;
 
-    public Goodslist(Goods goods, Orders orders, int count, String length, String width, String height, String depth) {
+    public Goodslist(Goods goods, Orders orders, int count, Double length, Double width, Double height, Double depth) {
         this.goods = goods;
         this.orders = orders;
         this.count = count;

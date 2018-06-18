@@ -23,7 +23,7 @@ public class GoodListService {
         return goodsList.get();
     }
 
-    public void createGoodList(Integer goods, Integer orders, int count, String length, String width, String height, String depth){
+    public void createGoodList(Integer goods, Integer orders, int count, Double length, Double width, Double height, Double depth){
         Goodslist goodslist = new Goodslist(null,null,count,length,width,height,depth);
         goodslist.setGoods(goodsService.getGoodById(goods));
         goodslist.setOrders(ordersService.getOrderById(orders));

@@ -15,8 +15,8 @@ public class WorksController {
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     @GetMapping("/createWork")
-    public void createWork(@RequestBody String workName,Double norma,Integer count,Integer goodId){
-        worksService.createWork(workName,norma,count,goodId);
+    public void createWork(@RequestBody String workName,Integer count,Integer goodId){
+        worksService.createWork(workName,count,goodId);
     }
 
     @GetMapping("/getAll")

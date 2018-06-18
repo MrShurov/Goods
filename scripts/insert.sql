@@ -1,5 +1,9 @@
 INSERT INTO public.goods (goodid, goodname) VALUES (1, 'Ванны моечные разборные');
 INSERT INTO public.goods (goodid, goodname) VALUES (2, 'Ванны моечные сварные');
+INSERT INTO public.measures (measureid, measurename) VALUES (1, 'килограммы');
+INSERT INTO public.measures (measureid, measurename) VALUES (2, 'литры');
+INSERT INTO public.measures (measureid, measurename) VALUES (3, 'грамыы');
+INSERT INTO public.measures (measureid, measurename) VALUES (4, 'штуки');
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (1, 1, 1, 'Лист 0,8 ст 430', true, null, 2.5);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (2, 1, 1, 'Лист 1,2 ст 430  ', true, null, 2.5);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (3, 1, 1, 'Лист 0,8 чёрн', true, null, 0.6);
@@ -17,10 +21,6 @@ INSERT INTO public.materials (materialid, goodid, measureid, materialname, manda
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (15, 1, 4, 'Гайка М5', true, null, 1);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (16, 1, 4, 'Болт М6х40', true, null, 1);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (17, 1, 4, 'Гайка М6', true, null, 1);
-INSERT INTO public.measures (measureid, measurename) VALUES (1, 'килограммы');
-INSERT INTO public.measures (measureid, measurename) VALUES (2, 'литры');
-INSERT INTO public.measures (measureid, measurename) VALUES (3, 'грамыы');
-INSERT INTO public.measures (measureid, measurename) VALUES (4, 'штуки');
 INSERT INTO public.users (userid, username, password) VALUES (1, 'MrShurov', '123');
 INSERT INTO public.users (userid, username, password) VALUES (2, '-Moral', '456');
 INSERT INTO public.works (workid, workname, norma, count, goodid) VALUES (1, 'Заготовительные', 0.6, 2, 1);
@@ -32,3 +32,8 @@ INSERT INTO public.works (workid, workname, norma, count, goodid) VALUES (6, 'О
 INSERT INTO public.works (workid, workname, norma, count, goodid) VALUES (7, 'Полимерная', 0.2, 1, 1);
 INSERT INTO public.works (workid, workname, norma, count, goodid) VALUES (8, 'Слесарные(зачистка полировка)', 0.3, 1, 1);
 INSERT INTO public.works (workid, workname, norma, count, goodid) VALUES (9, 'Транспортные', 0.2, 1, 1);
+INSERT INTO public.details (detailid, detailname, price, goodid) VALUES (1, 'Стенка  передняя 0,8', 1, 1);
+INSERT INTO public.details (detailid, detailname, price, goodid) VALUES (2, 'Скоба 0,8', 1, 1);
+INSERT INTO public.details (detailid, detailname, price, goodid) VALUES (3, 'Стенка задняя 0,8', 1, 1);
+INSERT INTO public.details (detailid, detailname, price, goodid) VALUES (4, 'обвязка (группа)', 1, 1);
+INSERT INTO public.details (detailid, detailname, price, goodid) VALUES (5, 'Стойка 1,2 390.002.002', 1, 1);

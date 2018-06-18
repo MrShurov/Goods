@@ -32,8 +32,3 @@ INSERT INTO public.works (workid, workname, count, goodid) VALUES (6, 'Обва�
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (7, 'Полимерная', 1, 1);
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (8, 'Слесарные(зачистка полировка)', 1, 1);
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (9, 'Транспортные', 1, 1);
-INSERT INTO public.details (detailid, detailname, price, goodid) VALUES (1, 'Стенка  передняя 0,8', 1, 1);
-INSERT INTO public.details (detailid, detailname, price, goodid) VALUES (2, 'Скоба 0,8', 1, 1);
-INSERT INTO public.details (detailid, detailname, price, goodid) VALUES (3, 'Стенка задняя 0,8', 1, 1);
-INSERT INTO public.details (detailid, detailname, price, goodid) VALUES (4, 'обвязка (группа)', 1, 1);
-INSERT INTO public.details (detailid, detailname, price, goodid) VALUES (5, 'Стойка 1,2 390.002.002', 1, 1);

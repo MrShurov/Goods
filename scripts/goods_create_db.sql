@@ -6,9 +6,6 @@
 
 /* Drop Tables */
 
-DROP TABLE IF EXISTS Details CASCADE
-;
-
 DROP TABLE IF EXISTS Goods CASCADE
 ;
 
@@ -34,9 +31,6 @@ DROP TABLE IF EXISTS Works CASCADE
 ;
 
 /* Drop Sequences */
-
-DROP SEQUENCE  IF EXISTS  SEQ_Details  CASCADE
-;
 
 DROP SEQUENCE  IF EXISTS  SEQ_GoodList  CASCADE
 ;
@@ -64,11 +58,6 @@ DROP SEQUENCE  IF EXISTS  SEQ_Works  CASCADE
 
 /* Create Sequences */
 
-CREATE SEQUENCE SEQ_Details
-INCREMENT 1
-START 1;
-;
-;
 
 CREATE SEQUENCE SEQ_GoodList
 INCREMENT 1
@@ -119,15 +108,6 @@ START 1;
 ;
 
 /* Create Tables */
-
-CREATE TABLE Details
-(
-	DetailID integer NOT NULL,
-	DetailName varchar(50) NOT NULL,
-	Price double precision NOT NULL,
-	GoodId integer NULL
-)
-;
 
 CREATE TABLE Goods
 (
@@ -208,12 +188,6 @@ CREATE TABLE Works
 
 /* Create Primary Keys, Indexes, Uniques, Checks */
 
-ALTER TABLE Details ADD CONSTRAINT PK_Details
-	PRIMARY KEY (DetailID)
-;
-
-CREATE INDEX IXFK_Details_Goods ON Details (GoodId ASC)
-;
 
 ALTER TABLE Goods ADD CONSTRAINT PK_Goods
 	PRIMARY KEY (GoodId)
@@ -272,10 +246,6 @@ CREATE INDEX IXFK_Works_Goods ON Works (GoodId ASC)
 ;
 
 /* Create Foreign Key Constraints */
-
-ALTER TABLE Details ADD CONSTRAINT FK_Details_Goods
-	FOREIGN KEY (GoodId) REFERENCES Goods (GoodId) ON DELETE No Action ON UPDATE No Action
-;
 
 ALTER TABLE GoodsList ADD CONSTRAINT FK_GoodsList_Goods
 	FOREIGN KEY (GoodId) REFERENCES Goods (GoodId) ON DELETE No Action ON UPDATE No Action

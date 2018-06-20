@@ -22,4 +22,8 @@ public class WorksService {
     public List<Works> getAll(){
         return (List<Works>)worksRepository.findAll();
     }
+
+    public Works getWorksByWorkName(String workName){
+        return worksRepository.getWorksByWorkName(workName);
+    }
 }

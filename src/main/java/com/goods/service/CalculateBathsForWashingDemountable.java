@@ -18,38 +18,38 @@ public class CalculateBathsForWashingDemountable {
 
     private Double calculateWorks(int count, String type){
         Double sumNorma = 0.0;
-        Works work = worksService.worksRepository.getWorksByWorkName("Заготовительные");
+        Works work = worksService.getWorksByWorkName("Заготовительные");
         Double norma = (0.15 + 0.15 * count) * work.getCount();
         sumNorma += norma;
-        work = worksService.worksRepository.getWorksByWorkName("Штамповочные");
+        work = worksService.getWorksByWorkName("Штамповочные");
         norma = (0.1 + 0.15 * count) * work.getCount();
         sumNorma += norma;
-        work = worksService.worksRepository.getWorksByWorkName("Гибочные");
+        work = worksService.getWorksByWorkName("Гибочные");
         norma = (0.15 + 0.2 * count) * work.getCount();
         sumNorma += norma;
-        work = worksService.worksRepository.getWorksByWorkName("Слесарно-сварочные (контактная сварка)");
+        work = worksService.getWorksByWorkName("Слесарно-сварочные (контактная сварка)");
         norma = 0.3 * count * work.getCount() * count;
         sumNorma += norma;
-        work = worksService.worksRepository.getWorksByWorkName("Обварка");
+        work = worksService.getWorksByWorkName("Обварка");
         norma = 0.0002 * count * work.getCount() * count;
         sumNorma += norma;
-        work = worksService.worksRepository.getWorksByWorkName("Полимерная");
+        work = worksService.getWorksByWorkName("Полимерная");
         if(type.equals("полимер")){
             norma = 0.15 * count * work.getCount();
         } else {
             norma = (double)0;
         }
         sumNorma += norma;
-        work = worksService.worksRepository.getWorksByWorkName("Слесарные(зачистка полировка)");
+        work = worksService.getWorksByWorkName("Слесарные(зачистка полировка)");
         norma = (0.05 + 0.05 * count) * work.getCount();
         sumNorma += norma;
-        work = worksService.worksRepository.getWorksByWorkName("Комплектовочные");
+        work = worksService.getWorksByWorkName("Комплектовочные");
         norma = 0.1 * work.getCount();
         sumNorma += norma;
-        work = worksService.worksRepository.getWorksByWorkName("Упаковочные");
+        work = worksService.getWorksByWorkName("Упаковочные");
         norma = (0.15 * count) * work.getCount();
         sumNorma += norma;
-        work = worksService.worksRepository.getWorksByWorkName("Транспортные");
+        work = worksService.getWorksByWorkName("Транспортные");
         norma = 0.2 * work.getCount();
         sumNorma += norma;
         return sumNorma;
@@ -81,7 +81,7 @@ public class CalculateBathsForWashingDemountable {
     private Double calculateMaterials(int count, String type, Double length, Double width, Double height, Double depth, Map<String,Double> map){
         Double sum = 0.0;
         Double norma = 0.0;
-        Materials materials = materialsService.getByName("Лист 0,8  ст 430");
+        Materials materials = materialsService.getByName("Лист 0,8 ст 430");
         if(type.equals("нерж")) {
             norma = map.get("Стенка  передняя 0,8") + map.get("Скоба 0,8") + map.get("Стенка задняя 0,8") + map.get("обвязка (группа)");
         } else {
@@ -127,8 +127,15 @@ public class CalculateBathsForWashingDemountable {
         norma = count * 0.08;
         sum += norma * materials.getPrice();
         materials = materialsService.getByName("Проволока сварочн.нерж.Ф1,2 кг");
-        norma = count * 0.08;
+        norma = count * 0.12;
         sum += norma * materials.getPrice();
         return sum;
+    }
+
+    public Double finalePrice(int count, String type, Double length, Double width, Double height, Double depth){
+        Double works = calculateWorks(count, type);
+        Map<String,Double> map = calculateDetails(count, type, length, width, height, depth);
+        Double materials = calculateMaterials(count, type, length, width, height, depth, map);
+        return (materials + works * 6) * 1.3;
     }
 }

@@ -1,3 +1,5 @@
+/*insert for calculate test*/
+
 INSERT INTO public.goods (goodid, goodname) VALUES (1, 'Ванны моечные разборные');
 INSERT INTO public.goods (goodid, goodname) VALUES (2, 'Ванны моечные сварные');
 INSERT INTO public.measures (measureid, measurename) VALUES (1, 'килограммы');
@@ -21,8 +23,8 @@ INSERT INTO public.materials (materialid, goodid, measureid, materialname, manda
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (15, 1, 4, 'Гайка М5', true, null, 1);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (16, 1, 4, 'Болт М6х40', true, null, 1);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (17, 1, 4, 'Гайка М6', true, null, 1);
-INSERT INTO public.users (userid, username, password) VALUES (1, 'MrShurov', '123');
-INSERT INTO public.users (userid, username, password) VALUES (2, '-Moral', '456');
+INSERT INTO public.user (userid, username, password) VALUES (1, 'MrShurov', '123');
+INSERT INTO public.user (userid, username, password) VALUES (2, '-Moral', '456');
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (1, 'Заготовительные', 2, 1);
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (2, 'Штамповочные', 1, 1);
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (3, 'Гибочные', 2, 1);
@@ -32,3 +34,9 @@ INSERT INTO public.works (workid, workname, count, goodid) VALUES (6, 'Обва�
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (7, 'Полимерная', 1, 1);
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (8, 'Слесарные(зачистка полировка)', 1, 1);
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (9, 'Транспортные', 1, 1);
+
+/*Insert for login test*/
+
+INSERT INTO public.role (role_id, role) VALUES (1, 'ADMIN');
+INSERT INTO public.user_role (user_id, role_id) VALUES (1, 1);
+INSERT INTO public.users (userid, enabled, password, username) VALUES (1, true, '$2a$04$KVH/IiPGThppCz3DEW.Z6.WL8M5qFE8uGpE/f5qbf.weITtG.mgJ.', 'Shurov');

@@ -1,6 +1,6 @@
 package com.goods.service;
 
-import com.goods.entities.Users;
+import com.goods.entities.User;
 import com.goods.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,8 +12,12 @@ public class UserService {
     @Autowired
     IUserRepository userRepository;
 
-    public Users getUserById(Integer id){
-        Optional<Users> user = userRepository.findById(id);
+    public User getUserById(Integer id){
+        Optional<User> user = userRepository.findById(id);
         return user.get();
+    }
+
+    public User getUserByUsername(String username){
+        return userRepository.getUsersByUsername(username);
     }
 }

@@ -5,15 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
+
+import java.util.Set;
 
 import static javax.persistence.GenerationType.SEQUENCE;
-
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
@@ -21,7 +17,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Data
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Users implements java.io.Serializable {
+public class User implements java.io.Serializable {
 
     @SequenceGenerator(name = "seq_user", sequenceName = "seq_user")
     @Id
@@ -32,4 +28,9 @@ public class Users implements java.io.Serializable {
     private String username;
     @Column(name = "password", nullable = false, length = 20)
     private String password;
+    @Column(name = "enabled", nullable = false)
+    private boolean enabled;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 }

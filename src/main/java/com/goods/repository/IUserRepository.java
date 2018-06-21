@@ -1,7 +1,8 @@
 package com.goods.repository;
 
-import com.goods.entities.Users;
+import com.goods.entities.User;
 import org.springframework.data.repository.CrudRepository;
 
-public interface IUserRepository extends CrudRepository<Users,Integer> {
+public interface IUserRepository extends CrudRepository<User,Integer> {
+    User getUsersByUsername(String username);
 }

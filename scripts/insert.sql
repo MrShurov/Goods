@@ -7,7 +7,7 @@ INSERT INTO public.measures (measureid, measurename) VALUES (2, 'литры');
 INSERT INTO public.measures (measureid, measurename) VALUES (3, 'грамыы');
 INSERT INTO public.measures (measureid, measurename) VALUES (4, 'штуки');
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (1, 1, 1, 'Лист 0,8 ст 430', true, null, 2.5);
-INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (2, 1, 1, 'Лист 1,2 ст 430  ', true, null, 2.5);
+INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (2, 1, 1, 'Лист 1,2 ст 430', true, null, 2.5);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (3, 1, 1, 'Лист 0,8 чёрн', true, null, 0.6);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (4, 1, 1, 'Лист 1,2 чёрн', true, null, 0.6);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (5, 1, 1, 'Лист 0,8 оцинк', true, null, 0.7);
@@ -23,8 +23,6 @@ INSERT INTO public.materials (materialid, goodid, measureid, materialname, manda
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (15, 1, 4, 'Гайка М5', true, null, 1);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (16, 1, 4, 'Болт М6х40', true, null, 1);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (17, 1, 4, 'Гайка М6', true, null, 1);
-INSERT INTO public.user (userid, username, password) VALUES (1, 'MrShurov', '123');
-INSERT INTO public.user (userid, username, password) VALUES (2, '-Moral', '456');
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (1, 'Заготовительные', 2, 1);
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (2, 'Штамповочные', 1, 1);
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (3, 'Гибочные', 2, 1);
@@ -34,9 +32,11 @@ INSERT INTO public.works (workid, workname, count, goodid) VALUES (6, 'Обва�
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (7, 'Полимерная', 1, 1);
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (8, 'Слесарные(зачистка полировка)', 1, 1);
 INSERT INTO public.works (workid, workname, count, goodid) VALUES (9, 'Транспортные', 1, 1);
+INSERT INTO public.works (workid, workname, count, goodid) VALUES (10, 'Комплектовочные', 1, 1);
+INSERT INTO public.works (workid, workname, count, goodid) VALUES (11, 'Упаковочные', 1, 1);
 
 /*Insert for login test*/
 
+INSERT INTO public.users (userid, enabled, password, username) VALUES (1, true, '$2a$04$KVH/IiPGThppCz3DEW.Z6.WL8M5qFE8uGpE/f5qbf.weITtG.mgJ.', 'Shurov');
 INSERT INTO public.role (role_id, role) VALUES (1, 'ADMIN');
 INSERT INTO public.user_role (user_id, role_id) VALUES (1, 1);
-INSERT INTO public.users (userid, enabled, password, username) VALUES (1, true, '$2a$04$KVH/IiPGThppCz3DEW.Z6.WL8M5qFE8uGpE/f5qbf.weITtG.mgJ.', 'Shurov');

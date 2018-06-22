@@ -17,8 +17,8 @@ public class OrdersController {
 
     @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     @GetMapping("/createOrder")
-    public void createOrder(@RequestBody Integer userId, String createDate) throws java.text.ParseException{
-        ordersService.createOrder(userId,ordersService.getDateFromString(createDate));
+    public void createOrder(@RequestBody Integer userId) throws java.text.ParseException{
+        ordersService.createOrder(userId);
     }
 
     @GetMapping("/getAll")

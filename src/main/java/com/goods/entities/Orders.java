@@ -41,8 +41,8 @@ public class Orders implements java.io.Serializable {
     @Column(name = "createdate", length = 29)
     private Date createDate;
 
-    public Orders(User user, Date createDate) {
+    public Orders(User user) {
         this.user = user;
-        this.createDate = createDate;
+        this.createDate = new Date();
     }
 }

@@ -26,7 +26,7 @@ public class User implements java.io.Serializable {
     private Integer userid;
     @Column(name = "username", nullable = false, length = 50)
     private String username;
-    @Column(name = "password", nullable = false, length = 20)
+    @Column(name = "password", nullable = false, length = 100)
     private String password;
     @Column(name = "enabled", nullable = false)
     private boolean enabled;

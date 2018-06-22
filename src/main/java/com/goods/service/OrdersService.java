@@ -17,15 +17,8 @@ public class OrdersService {
     @Autowired
     UserService userService;
 
-    public Date getDateFromString(String createDate) throws java.text.ParseException {
-        SimpleDateFormat format = new SimpleDateFormat();
-        format.applyPattern("dd.mm.yyyy");
-        return format.parse(createDate);
-
-    }
-
-    public void createOrder(Integer userId, Date createDate) {
-        Orders order = new Orders(userService.getUserById(userId), createDate);
+    public void createOrder(Integer userId) {
+        Orders order = new Orders(userService.getUserById(userId));
         ordersRepository.save(order);
     }
 

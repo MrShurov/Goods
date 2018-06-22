@@ -39,4 +39,5 @@ INSERT INTO public.works (workid, workname, count, goodid) VALUES (11, 'Упак
 
 INSERT INTO public.users (userid, enabled, password, username) VALUES (1, true, '$2a$04$KVH/IiPGThppCz3DEW.Z6.WL8M5qFE8uGpE/f5qbf.weITtG.mgJ.', 'Shurov');
 INSERT INTO public.role (role_id, role) VALUES (1, 'ADMIN');
+INSERT INTO public.role (role_id, role) VALUES (2, 'USER');
 INSERT INTO public.user_role (user_id, role_id) VALUES (1, 1);

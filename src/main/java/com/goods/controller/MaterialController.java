@@ -2,6 +2,7 @@ package com.goods.controller;
 
 import com.goods.entities.Materials;
 import com.goods.service.MaterialsService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,12 +13,6 @@ import java.util.List;
 public class MaterialController {
     @Autowired
     MaterialsService materialsService;
-
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    @GetMapping("/createMaterial")
-    public void createMaterial(@RequestBody String materialName, String goodName, String measureName, Boolean mandatory, Double price){
-        materialsService.createMaterial(materialName,goodName,measureName,mandatory,price);
-    }
 
     @GetMapping("/getAll")
     public List<Materials> getAll(){

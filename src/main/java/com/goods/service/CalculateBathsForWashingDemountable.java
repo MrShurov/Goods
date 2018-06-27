@@ -2,6 +2,7 @@ package com.goods.service;
 
 import com.goods.entities.Materials;
 import com.goods.entities.Works;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ public class CalculateBathsForWashingDemountable {
     @Autowired
     MaterialsService materialsService;
 
-    private Double calculateWorks(int count, String type){
+    /*private Double calculateWorks(Map<String,Object> mapObject){
         Double sumNorma = 0.0;
         Works work = worksService.getWorksByWorkName("Заготовительные");
         Double norma = (0.15 + 0.15 * count) * work.getCount();
@@ -55,7 +56,7 @@ public class CalculateBathsForWashingDemountable {
         return sumNorma;
     }
 
-    private Map<String,Double> calculateDetails(int count, String type, Double length, Double width, Double height, Double depth){
+    private Map<String,Double> calculateDetails(Map<String,Object> mapObject){
         Map<String,Double> map = new HashMap<String,Double>();
         Double norma = (length / count + 21) * (depth + 40) * 0.8 * 1.1 * 8 * count / 1000000;
         map.put("Стенка  передняя 0,8",norma);
@@ -78,7 +79,7 @@ public class CalculateBathsForWashingDemountable {
         return map;
     }
 
-    private Double calculateMaterials(int count, String type, Double length, Double width, Double height, Double depth, Map<String,Double> map){
+    private Double calculateMaterials(Map<String,Object> mapObject, Map<String,Double> map){
         Double sum = 0.0;
         Double norma = 0.0;
         Materials materials = materialsService.getByName("Лист 0,8 ст 430");
@@ -132,10 +133,11 @@ public class CalculateBathsForWashingDemountable {
         return sum;
     }
 
-    public Double finalePrice(int count, String type, Double length, Double width, Double height, Double depth){
-        Double works = calculateWorks(count, type);
-        Map<String,Double> map = calculateDetails(count, type, length, width, height, depth);
-        Double materials = calculateMaterials(count, type, length, width, height, depth, map);
+    public Double finalePrice(JSONObject object){
+        Map<String,Object> mapObject = object.toMap();
+        Double works = calculateWorks(mapObject);
+        Map<String,Double> map = calculateDetails(mapObject);
+        Double materials = calculateMaterials(mapObject, map);
         return (materials + works * 6) * 1.3;
-    }
+    }*/
 }

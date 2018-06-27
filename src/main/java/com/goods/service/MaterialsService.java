@@ -19,16 +19,6 @@ public class MaterialsService {
     @Autowired
     private MeasureService measureService;
 
-    public void createMaterial(String materialName, String goodName, String measureName,Boolean mandatory, Double price){
-        Materials material = new Materials();
-        material.setMaterialName(materialName);
-        material.setGoods(goodsService.getGoodByGoodName(goodName));
-        material.setMeasures(measureService.getMeasuresByMeasureName(measureName));
-        material.setMandatory(mandatory);
-        material.setPrice(price);
-        materialsRepository.save(material);
-    }
-
     public List<Materials> getAll(){
         return (List<Materials>)materialsRepository.findAll();
     }

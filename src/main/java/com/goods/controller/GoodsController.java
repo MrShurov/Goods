@@ -13,8 +13,7 @@ public class GoodsController {
     @Autowired
     private GoodsService goodsService;
 
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    @GetMapping("/createGood")
+    @RequestMapping(value = "/createGood", method = RequestMethod.POST, produces = "application/json")
     public void createGood(@RequestBody String goodName){
         goodsService.createGood(goodName);
     }

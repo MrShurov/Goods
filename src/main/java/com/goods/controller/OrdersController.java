@@ -15,8 +15,7 @@ public class OrdersController {
     @Autowired
     OrdersService ordersService;
 
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    @GetMapping("/createOrder")
+    @RequestMapping(value = "/createOrder", method = RequestMethod.POST, produces = "application/json")
     public void createOrder(@RequestBody Integer userId) throws java.text.ParseException{
         ordersService.createOrder(userId);
     }

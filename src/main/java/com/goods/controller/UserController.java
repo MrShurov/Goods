@@ -11,8 +11,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
-    @GetMapping("/createUser")
+    @RequestMapping(value = "/createUser", method = RequestMethod.POST, produces = "application/json")
     public void createUser(@RequestBody String username, String password){
         userService.createUser(username,password);
     }

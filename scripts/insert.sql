@@ -17,7 +17,7 @@ INSERT INTO public.materials (materialid, goodid, measureid, materialname, manda
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (9, 1, 2, 'Газ аргон л', true, null, 1);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (10, 1, 3, 'Вольфрам лантана Ф2 г', true, null, 1);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (11, 1, 4, 'Опора пластиковая уголок 40х40 с грибком (Лида)', true, null, 1);
-INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (12, 1, 4, 'Сифон универсальный (по требованию заказчика)', false, null, 1);
+INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (12, 1, 4, 'Сифон универсальный', false, null, 1);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (13, 1, 1, 'Порошковая краска 7035 89/70220', true, null, 1);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (14, 1, 4, 'Винт ww М5х16 КВ-РН', true, null, 1);
 INSERT INTO public.materials (materialid, goodid, measureid, materialname, mandatory, formula, price) VALUES (15, 1, 4, 'Гайка М5', true, null, 1);

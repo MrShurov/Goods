@@ -23,10 +23,11 @@ public class MaterialsService {
         return (List<Materials>)materialsRepository.findAll();
     }
 
-    public void updatePrice(Double price, String materialName){
+    public Materials updatePrice(Double price, String materialName){
         Materials material = materialsRepository.getMaterialsByMaterialName(materialName);
         material.setPrice(price);
         materialsRepository.save(material);
+        return material;
     }
 
     public Materials getByName(String materialName){

@@ -28,7 +28,7 @@ public class UserService {
         return userRepository.getUsersByUsername(username);
     }
 
-    public void createUser(String username, String password){
+    public User createUser(String username, String password){
         User user = new User(username,null,true);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         passwordEncoder.encode(password);
@@ -37,6 +37,6 @@ public class UserService {
         roles.add(roleRepository.getRoleByRole("USER"));
         user.setRoles(roles);
         userRepository.save(user);
-
+        return user;
     }
 }

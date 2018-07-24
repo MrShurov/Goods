@@ -6,3 +6,8 @@
 	"depth": 100,
 	"type": "полимер"
 }
+
+{
+    "username": "moral",
+    "password": "21"
+}

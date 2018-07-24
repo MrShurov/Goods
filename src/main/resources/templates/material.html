@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Личный кабинет</title>
+    <script src="../static/js/material.js"></script>
+</head>
+<body>
+<div th:replace="fragments/header"></div>
+<div class="container" style="margin-top: 3%">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="text-center">Идентификационный номер</th>
+            <th>Название материала</th>
+            <th>Единицы измерения</th>
+            <th class="text-center">Цена</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="materials : ${materials}">
+            <th class="text-center" scope="row" th:utext="${materials.materialId}">...</th>
+            <td th:utext="${materials.materialName}">...</td>
+            <td th:utext="${materials.Measures.measureName}">...</td>
+            <td class="text-center" th:utext="${materials.price}">...</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="fragments/footer"></div>
+</body>
+</html>

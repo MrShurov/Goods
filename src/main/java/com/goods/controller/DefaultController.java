@@ -17,12 +17,17 @@ public class DefaultController {
     }
 
     @GetMapping("/createUser")
-    public String user() {
+    public String createUser() {
         return "/createUser";
     }
 
     @GetMapping("/login")
     public String login() {
         return "/login";
+    }
+
+    @GetMapping("/material")
+    public String material(){
+        return "/material";
     }
 }

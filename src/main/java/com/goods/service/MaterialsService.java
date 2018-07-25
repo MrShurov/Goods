@@ -3,38 +3,37 @@ package com.goods.service;
 import com.goods.entities.Materials;
 import com.goods.repository.IMaterialsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
 public class MaterialsService {
-    @Autowired
-    private IMaterialsRepository materialsRepository;
-    @Autowired
-    private GoodsService goodsService;
-    @Autowired
-    private MeasureService measureService;
+    private final IMaterialsRepository materialsRepository;
 
-    public List<Materials> getAll(){
-        return (List<Materials>)materialsRepository.findAll();
+    @Autowired
+    public MaterialsService(IMaterialsRepository materialsRepository) {
+        this.materialsRepository = materialsRepository;
     }
 
-    public Materials updatePrice(Double price, String materialName){
-        Materials material = materialsRepository.getMaterialsByMaterialName(materialName);
-        material.setPrice(price);
+    public List<Materials> getAll() {
+        return (List<Materials>) materialsRepository.findAll();
+    }
+
+    public Materials updatePrice(Map<String, Object> object) {
+        Materials material = materialsRepository.getMaterialsByMaterialName((String) object.get("materialName"));
+        material.setPrice((Double) object.get("price"));
         materialsRepository.save(material);
         return material;
     }
 
-    public Materials getByName(String materialName){
+    Materials getByName(String materialName) {
         return materialsRepository.getMaterialsByMaterialName(materialName);
     }
 
-    public Materials getMaterialById(Integer id){
+    public Materials getMaterialById(Integer id) {
         Optional<Materials> material = materialsRepository.findById(id);
         return material.get();
     }

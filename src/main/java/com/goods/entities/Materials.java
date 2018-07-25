@@ -5,18 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
 
 import static javax.persistence.GenerationType.SEQUENCE;
-
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "materials")
@@ -39,10 +30,6 @@ public class Materials implements java.io.Serializable {
     private Measures measures;
     @Column(name = "materialname", nullable = false, length = 100)
     private String materialName;
-    @Column(name = "mandatory", nullable = false)
-    private Boolean mandatory;
-    @Column(name = "formula", length = 500)
-    private String formula;
     @Column(name = "price", nullable = false, precision = 17, scale = 17)
     private double price;
 }

@@ -2,25 +2,26 @@ package com.goods.controller;
 
 import com.goods.entities.Materials;
 import com.goods.service.MaterialsService;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
+@RequestMapping(value = "/material")
 public class MaterialController {
 
-    @Autowired
-    MaterialsService materialsService;
+    private final MaterialsService materialsService;
 
-    @GetMapping("/material")
-    public String getAll(Model model){
-        model.addAttribute("materials",materialsService.getAll()) ;
-        return "/material";
+    @Autowired
+    public MaterialController(MaterialsService materialsService) {
+        this.materialsService = materialsService;
+    }
+
+    @RequestMapping(value = "/updatePrice", method = RequestMethod.PUT, produces = "application/json")
+    public ResponseEntity<Materials> updatePrice(@RequestBody Map<String, Object> object) {
+        return new ResponseEntity<>(materialsService.updatePrice(object), HttpStatus.OK);
     }
 }

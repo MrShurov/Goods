@@ -15,13 +15,13 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @NoArgsConstructor
 @Data
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Role implements java.io.Serializable{
+public class Role implements java.io.Serializable {
 
     @SequenceGenerator(name = "seq_role", sequenceName = "seq_role")
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "seq_role")
-    @Column(name="role_id")
+    @Column(name = "role_id")
     private int id;
-    @Column(name="role")
+    @Column(name = "role")
     private String role;
 }

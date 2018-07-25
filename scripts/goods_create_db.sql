@@ -2,39 +2,39 @@ create database "DB_Goods"
 ;
 
 create sequence seq_goodlist
-	increment by 50
+	increment by 1
 ;
 
 create sequence seq_goods
-	increment by 50
+	increment by 1
 ;
 
 create sequence seq_materials
-	increment by 50
+	increment by 1
 ;
 
 create sequence seq_measures
-	increment by 50
+	increment by 1
 ;
 
 create sequence seq_ordermaterials
-	increment by 50
+	increment by 1
 ;
 
 create sequence seq_orders
-	increment by 50
+	increment by 1
 ;
 
 create sequence seq_role
-	increment by 50
+	increment by 1
 ;
 
 create sequence seq_user
-	increment by 50
+	increment by 1
 ;
 
 create sequence seq_works
-	increment by 50
+	increment by 1
 ;
 
 create table if not exists goods
@@ -60,8 +60,6 @@ create table if not exists materials
 	materialid integer not null
 		constraint materials_pkey
 			primary key,
-	formula varchar(500),
-	mandatory boolean not null,
 	materialname varchar(100) not null,
 	price double precision not null,
 	goodid integer not null

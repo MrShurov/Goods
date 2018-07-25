@@ -3,23 +3,26 @@ package com.goods.controller;
 import com.goods.entities.Goods;
 import com.goods.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/goods")
 public class GoodsController {
-    @Autowired
-    private GoodsService goodsService;
+    private final GoodsService goodsService;
 
-    @RequestMapping(value = "/createGood", method = RequestMethod.POST, produces = "application/json")
-    public void createGood(@RequestBody String goodName){
-        goodsService.createGood(goodName);
+    @Autowired
+    public GoodsController(GoodsService goodsService) {
+        this.goodsService = goodsService;
     }
 
     @GetMapping("/getAll")
-    public List<Goods> getAll(){
-        return goodsService.getAll();
+    public ResponseEntity<List<Goods>> getAll() {
+        return new ResponseEntity<>(goodsService.getAll(), HttpStatus.OK);
     }
 }

@@ -10,22 +10,26 @@ import java.util.Optional;
 
 @Service
 public class GoodsService {
-    @Autowired
-    private IGoodsRepository goodsRepository;
+    private final IGoodsRepository goodsRepository;
 
-    public void createGood(String goodName){
+    @Autowired
+    public GoodsService(IGoodsRepository goodsRepository) {
+        this.goodsRepository = goodsRepository;
+    }
+
+    public void createGood(String goodName) {
         goodsRepository.save(new Goods(goodName));
     }
 
-    public List<Goods> getAll(){
-        return (List<Goods>)goodsRepository.findAll();
+    public List<Goods> getAll() {
+        return (List<Goods>) goodsRepository.findAll();
     }
 
-    public Goods getGoodByGoodName(String goodName){
+    public Goods getGoodByGoodName(String goodName) {
         return goodsRepository.getGoodsByGoodName(goodName);
     }
 
-    public Goods getGoodById(Integer goodId){
+    public Goods getGoodById(Integer goodId) {
         Optional<Goods> good = goodsRepository.findById(goodId);
         return good.get();
     }

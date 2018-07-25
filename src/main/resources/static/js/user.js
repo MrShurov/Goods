@@ -1,18 +1,19 @@
-$(document).ready(function(){
+$(document).ready(function () {
     $('#createUser').click(function () {
         createUser();
     });
 });
+
 function createUser() {
     var username = $("#username").val();
     var password = $("#password").val();
-    if(username && password){
+    if (username && password) {
         var user = {
             username: username,
             password: password
         };
         $.ajax({
-            data:user,
+            data: user,
             dataType: "json",
             type: 'post',
             url: "/user/createUser"

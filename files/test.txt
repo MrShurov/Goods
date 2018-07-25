@@ -11,3 +11,8 @@
     "username": "moral",
     "password": "21"
 }
+
+{
+    "materialName": "Гайка М6",
+    "price": 12.4
+}

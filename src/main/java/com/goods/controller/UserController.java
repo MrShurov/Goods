@@ -5,7 +5,10 @@ import com.goods.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
@@ -13,14 +16,16 @@ import java.util.Map;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
+    private final
     UserService userService;
 
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @RequestMapping(value = "/createUser", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<User> createUser(@RequestParam Map<String, Object> object){
-        String username = (String) object.get("username");
-        String password = (String) object.get("password");
-        User user = userService.createUser(username,password);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+    public ResponseEntity<User> createUser(@RequestParam Map<String, Object> object) {
+        return new ResponseEntity<>(userService.createUser(object), HttpStatus.OK);
     }
 }

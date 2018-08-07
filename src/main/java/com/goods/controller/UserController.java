@@ -28,4 +28,14 @@ public class UserController {
     public ResponseEntity<User> createUser(@RequestParam Map<String, Object> object) {
         return new ResponseEntity<>(userService.createUser(object), HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/getUser", method = RequestMethod.POST, produces = "application/json")
+    public ResponseEntity<User> getUser(){
+        return new ResponseEntity<>(userService.getUser(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/addInformation", method = RequestMethod.PUT, produces = "application/json")
+    public ResponseEntity<User> addInformation(@RequestParam Map<String, Object> object){
+        return new ResponseEntity<>(userService.updateInformation(object), HttpStatus.OK);
+    }
 }

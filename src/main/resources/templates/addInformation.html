@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Личная Информация</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{js/user.js}"></script>
+</head>
+<body>
+<div th:replace="fragments/header"></div>
+<div class="container" style="margin-top: 5%">
+    <form>
+        <h1 class="text-center" style="margin-bottom: 3%">Добавить информацию о себе</h1>
+        <div class="form-group d-flex flex-row justify-content-center">
+            <div class="col-6">
+                <label for="companyName">Названия компании:</label>
+                <input type="text" class="form-control" id="companyName" name="companyName">
+            </div>
+        </div>
+        <div class="form-group d-flex flex-row justify-content-center">
+            <div class="col-6">
+                <label for="postCode">Почтовый индекс:</label>
+                <input type="text" class="form-control" id="postCode" name="postCode">
+            </div>
+        </div>
+        <div class="form-group d-flex flex-row justify-content-center">
+            <div class="col-6">
+                <label for="paymentAccount">Расчетный счет:</label>
+                <input type="text" class="form-control" id="paymentAccount" name="paymentAccount">
+            </div>
+        </div>
+        <div class="form-group d-flex flex-row justify-content-center">
+            <div class="col-6">
+                <label for="bankRequisites">Реквизиты банка:</label>
+                <input type="text" class="form-control" id="bankRequisites" name="bankRequisites">
+            </div>
+        </div>
+        <div class="form-group d-flex flex-row justify-content-center">
+            <div class="col-6">
+                <label for="unp">УНП:</label>
+                <input type="text" class="form-control" id="unp" name="unp">
+            </div>
+        </div>
+        <div class="form-group d-flex flex-row justify-content-center">
+            <div class="col-6">
+                <label for="tel">Номер телефона:</label>
+                <input type="text" class="form-control" id="tel" name="tel">
+            </div>
+        </div>
+        <div class="d-flex flex-row justify-content-center">
+            <button id="addInformation" type="submit" class="btn btn-primary">Добавить</button>
+        </div>
+    </form>
+</div>
+<div th:replace="fragments/footer"></div>
+</body>
+</html>

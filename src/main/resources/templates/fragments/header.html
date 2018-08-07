@@ -14,11 +14,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav mr-auto" sec:authorize="hasRole('ADMIN')">
-                <li class="nav-item">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" sec:authorize="hasRole('ADMIN')">
                     <a class="nav-link" th:href="@{/material}">Материалы</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                         Пользователи
                     </a>
@@ -27,6 +27,9 @@
                         <a class="dropdown-item" href="#">Link 2</a>
                         <a class="dropdown-item" href="#">Link 3</a>
                     </div>
+                </li>
+                <li class="nav-item" sec:authorize="hasAnyRole('USER','ADMIN')">
+                    <a class="nav-link" th:href="@{/information}">Личная Информация</a>
                 </li>
             </ul>
             <ul class="navbar-nav navbar-right" sec:authorize="isAuthenticated()">

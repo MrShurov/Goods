@@ -30,4 +30,14 @@ public class DefaultController {
     public String material(){
         return "/material";
     }
+
+    @GetMapping("/information")
+    public String information(){
+        return "/information";
+    }
+
+    @GetMapping("/addInformation")
+    public String addInformation(){
+        return "/addInformation";
+    }
 }

@@ -29,6 +29,18 @@ public class User implements java.io.Serializable {
     private String password;
     @Column(name = "enabled", nullable = false)
     private boolean enabled;
+    @Column(name = "companyname", length = 100)
+    private String companyName;
+    @Column(name = "postcode", length = 6)
+    private String postCode;
+    @Column(name = "paymentaccount", length = 50)
+    private String paymentAccount;
+    @Column(name = "bankrequisites", length = 1000)
+    private String bankRequisites;
+    @Column(name = "unp", length = 100)
+    private String unp;
+    @Column(name = "tel")
+    private String tel;
 
     public User(String username, String password, boolean enabled) {
         this.username = username;

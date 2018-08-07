@@ -48,7 +48,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("user").password("{noop}password").roles("USER")
                 .and()
-                .withUser("admin").password("{noop}password").roles("ADMIN");
+                .withUser("Shurov").password("{noop}password").roles("ADMIN");
         auth.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery(
                         "select username,password, enabled from users where username=?")

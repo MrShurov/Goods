@@ -80,13 +80,19 @@ create table if not exists role
 )
 ;
 
-create table if not exists users
+create table users
 (
 	userid integer not null
 		constraint users_pkey
 			primary key,
+	bankrequisites varchar(1000),
+	companyname varchar(100),
 	enabled boolean not null,
-	password varchar(60) not null,
+	password varchar(100) not null,
+	paymentaccount varchar(50),
+	postcode varchar(6),
+	tel varchar(255),
+	unp varchar(100),
 	username varchar(50) not null
 )
 ;
